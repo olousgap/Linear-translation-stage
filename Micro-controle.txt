@@ -1,0 +1,50 @@
+Matlab tmtool
+
+Data type: ASCII
+Data format: %s
+
+I1O\n
+I2O\n
+I1?\n
+I2?\n
+C1?\n
+C2?\n
+CC?\n	Asks the face of both axes
+VR1\n
+VR2\n
+VL1\n
+VL2\n
+C1O\n
+C2O\n
+
+C1=+000000!\n
+C2=+000000!\n
+
+I1=+000010!\n
+I2=+000001!\n
+
+
+Possible answers are
+AR1 (move finished)
+DE1 (move)
+RO1(go back to zero)
+F-1/F+1 (end stop)
+
+
+7 digits 
++00.0000
+
+5cm=50.0000
+
+max=99.9999
+if area > 10cm divide command by 2
+e.g. 10cm=10000000/2=500000+500000
+
+
+
+NI Interactive control
+
+ibwrt "I1O\n"
+ibwrt "I2O\n"
+ibwrt "I1=+000010!\n"
+ibwrt "I2=+000010!\n"

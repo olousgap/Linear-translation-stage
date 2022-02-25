@@ -1,0 +1,101 @@
+http://forums.ni.com/t5/LabVIEW/Old-French-XY-Controller/td-p/40775
+
+
+Old French XY Controller
+04-03-2002 09:07 AM 
+
+I have built a Light Beam Induced Current cum I-V
+characterisation setup in which data acquisition from
+typical 400K pixel scans takes about 100 hours. This
+acquisition is effected over a PCMCIA/GPIB interface
+by LabVIEW 6.0 running on Windows 2000.
+
+The single largest contributor to the total data
+acquisition time is XY-scanning. The instrument in
+question is a French fabrication XY Controller of
+the type
+
+Micro Controle Model IT6D CA2
+
+which employs micron-precision step motors. I have
+been unable to find any drivers for this instrument
+as it is rather old and, to the best of my knowledge,
+unsupported. I currently use a core which appears to
+work though its intricacies are not clear to either
+myself or others I have asked.
+
+Does anyone have a
+ny experience that may be
+relevant to this XY Controller? General tips on
+improving the efficiency of XY Controllers in
+LabVIEW would be greatly appreciated.
+
+Replies directly to me at
+
+wandera@stud.ntnu.no
+
+are invited.
+
+
+Andrew
+
+PS
+Many thanks to Dennis Knutson for supplying an
+invaluable pointer - and sample VI to boot - on the
+issue of using the HP6632A as a variable DC voltage
+source. I had grappled with the notion of a Shift
+Register, but proved too much of a LabVIEW newbie
+when it came to the implementation.
+
+
+
+Re: Old French XY Controller
+04-14-2002 12:38 AM 
+
+Hi Andrew,
+
+Can you chase down the command documentation for the microsteppers? gpib is rather straight-forward in LV.
+
+Ben 
+
+
+
+Re : Old French XY Controller
+02-10-2011 02:17 AM 
+
+Hello,
+
+ 
+
+I have the same problem than andreww, does anyone have a solution? Does anyone know gpib commands to pilote a Micro-Controle IT6DCA?
+
+Thanks,
+
+ 
+
+Matthew
+....
+
+
+
+Re : Old French XY Controller[ Edited ]
+02-14-2011 06:14 AM - last edited on 02-14-2011 06:15 AM 
+
+I've finally found the solution. For the axis 1:
+
+    I1=+XXXX! :to move the axis of XXXXpoints.
+
+    I1O to go back to zero (O the letter)
+
+    I1? to ask the state of the axis 1.
+
+    C1O et C1? for the face.
+
+the same commandes with 2 instead of 1 for the second motor
+
+ 
+
+Possible answers are AR1 (:move finished) DE1 (move) RO1(go back to zero) and  F-1/F+1 (end stop)
+
+The commands must finish with a LF procedure.
+....
