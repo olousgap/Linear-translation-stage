@@ -1,2 +1,2 @@
 # Linear-translation-stage 
-Matlab driver for Micro controle IT6DCA linear translation stage
+Driver for Micro controle IT6DCA linear translation stage in Matlab and C
